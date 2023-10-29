@@ -1,0 +1,48 @@
+Receiver Mail: qammaralitormik@gmail.com Receiver Phone: 03165392101
+Message Body: Weather Update of Islamabad
+  Temperature: 296.95°C
+  Max Temperature: 296.95°C
+  Min Temperature: 296.95°C
+  Feels like: 297.03°C
+  Humidity: 63%
+  
+Receiver Mail: nasirhussaintormik@gmail.com Receiver Phone: 03479020892
+Message Body: Weather Update of Tokyo
+  Temperature: 291.2°C
+  Max Temperature: 292.9°C
+  Min Temperature: 288.57°C
+  Feels like: 290.52°C
+  Humidity: 56%
+    
+Receiver Mail: qammaralitormik@gmail.com Receiver Phone: 03165392101
+Message Body: Weather Update of Islamabad
+  Temperature: 293.06°C
+  Max Temperature: 293.06°C
+  Min Temperature: 293.06°C
+  Feels like: 292.93°C
+  Humidity: 70%
+  
+Receiver Mail: nasirhussaintormik@gmail.com Receiver Phone: 03165392101
+Message Body: Weather Update of Skardu
+  Temperature: 282.38°C
+  Max Temperature: 282.38°C
+  Min Temperature: 282.38°C
+  Feels like: 282.38°C
+  Humidity: 58%
+  
+Receiver Mail: nasirhussaintormik@gmail.com Receiver Phone: 03165392101
+Message Body: Weather Update of Skardu
+  Temperature: 282.38°C
+  Max Temperature: 282.38°C
+  Min Temperature: 282.38°C
+  Feels like: 282.38°C
+  Humidity: 58%
+  
+Receiver Mail: qammaralitormik@gmail.com Receiver Phone: 03165392101
+Message Body: Weather Update of Islamabad
+  Temperature: 293.06°C
+  Max Temperature: 293.06°C
+  Min Temperature: 293.06°C
+  Feels like: 292.96°C
+  Humidity: 71%
+  

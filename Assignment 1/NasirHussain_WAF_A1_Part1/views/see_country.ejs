@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <style>
+        .btn-sm {
+            margin-left: 10px;
+            height: 40px;
+            width: 73px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-between">
+                <h1>Universities by Country</h1>
+                <a href="/home" class="btn btn-success btn-sm">Home</a>
+            </div>
+        </div>
+    </center>
+    <div>
+        <% if (universities.length !== 0) { %>
+        <center>
+            <h3>Country Name: <%= country_name %></h3>
+            <h4>Total Universities: <%= count %></h4>
+        </center>
+        <ol>
+            <% for (const university of universities) { %>
+            <li><%= university.name %></li>
+            <% } %>
+        </ol>
+        <% } else { %>
+          <div class="alert alert-info mt-3">
+            No universities found for <%= country_name %>.
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

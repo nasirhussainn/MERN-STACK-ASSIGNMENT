@@ -1,0 +1,16 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "WAF Assignment",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nasir",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "node": "^21.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
