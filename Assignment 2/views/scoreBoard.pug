@@ -1,0 +1,85 @@
+doctype html
+html
+  head
+    title Match Scoreboard
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    style.
+      /* Custom CSS */
+      .match-summary {
+        background-color: green;
+        color: white;
+        border: 1px solid #888;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .team img {
+        width: 80px;
+        height: 80px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+      }
+      .team h3 {
+        font-size: 1.5rem;
+      }
+
+  body
+    .container
+      .match-summary
+        h1.text-center= response.data.name
+        .row.match-details
+          .col-md-6
+            h2 Match Type
+            p= response.data.matchType
+            h2 Venue
+            p= response.data.venue
+          .col-md-6
+            h2 Date
+            p= response.data.date
+            h2 Time
+            p= response.data.dateTimeGMT
+        .row.team-info
+          each team in response.data.teamInfo
+            .col-md-6.team
+              img(src=team.img, alt=team.name)
+              h3.text-center= team.name
+              p.text-center= team.shortname
+
+        if response.data.matchType === "test"
+          table.table.table-bordered
+              tbody
+                each score in response.data.score
+                  tr
+                    td= score.inning
+                    each team in response.data.teams
+                      - const teamIndex = score.inning.indexOf(team)
+                      td= teamIndex !== -1 ? score.r : ''
+                      td= teamIndex !== -1 ? `${score.w} wickets` : ''
+                      td= teamIndex !== -1 ? `${score.o} overs` : ''
+          .row.match-status
+           .col-12.text-center
+            h4 Match Status
+            p= response.data.status
+        else
+          table.table.table-bordered
+            thead
+              tr
+                th
+                each team in response.data.teams
+                  th= team
+            tbody
+              tr
+                th Runs
+                each score in response.data.score
+                  td= score.r
+              tr
+                th Wickets
+                each score in response.data.score
+                  td= `${score.w} wickets`
+              tr
+                th Overs
+                each score in response.data.score
+                  td= score.o
+          .row.match-status
+           .col-12.text-center
+            h4 Match Status
+            p= response.data.status

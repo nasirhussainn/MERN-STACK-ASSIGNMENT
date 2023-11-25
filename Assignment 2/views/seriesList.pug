@@ -1,0 +1,40 @@
+html
+  head
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
+  body
+    .container
+      h1 Series Information
+      .row
+        each series in response.data
+          .col-md-6
+            .card.mb-3
+              .card-header
+                h3= series.name
+              .card-body
+                p
+                  strong Start Date:
+                  | #{series.startDate}
+                p
+                  strong End Date:
+                  | #{series.endDate}
+                p
+                  strong ODI Matches:
+                  | #{series.odi}
+                p
+                  strong T20 Matches:
+                  | #{series.t20}
+                p
+                  strong Test Matches:
+                  | #{series.test}
+                p
+                  strong Squads:
+                  | #{series.squads}
+                p
+                  strong Total Matches:
+                  | #{series.matches}
+                form(action='/seriesInfoRouter' method='get')
+                 input(type='hidden', name='series_id', value= series.id)
+                 button.btn.btn-primary(type='submit') Series Info
+  script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+  //- script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js")
+  //- script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title Recent Series Details
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css")
+    style.
+      /* Custom CSS */
+      .series-details {
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+      }
+      .match-box {
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+      }
+  body
+    .container
+      .series-details
+        h1.text-center= response.data.info.name
+        p
+          | Start Date: #{response.data.info.startdate}
+          br
+          | End Date: #{response.data.info.enddate}
+          br
+          | Total Matches: #{response.data.info.matches}
+        .row
+          each match in response.data.matchList
+            .col-md-4
+              .match-box
+                //- img(src=match.teamInfo[0].img alt=match.teams[0])
+                //- img(src=match.teamInfo[1].img alt=match.teams[1])
+                h4= match.name
+                p Match Type: #{match.matchType}
+                p Status: #{match.status}
+                p Venue: #{match.venue}
+                p Date: #{match.date}
+                p Teams: #{match.teams.join(' vs ')}

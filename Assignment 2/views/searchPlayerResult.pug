@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Player Search Results
+  body
+    h1 Player Search Results
+
+    if response && response.data && response.data.length > 0
+      ul
+        each player in response.data
+          li
+            strong Name:
+            | #{player.name}
+            br
+            strong Country:
+            | #{player.country}
+            br
+            if player.altNames
+              strong Alternate Names:
+              | #{player.altNames}
+            br
+            form(action='/playerInfoRouter', method='get')
+             input(type='hidden', name='id', value=player.id)
+             button.btn.btn-primary(type='submit') Full Info
+            hr
+    else
+      p No results found.

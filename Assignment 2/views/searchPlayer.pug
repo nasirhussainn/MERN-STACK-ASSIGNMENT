@@ -1,0 +1,66 @@
+block content
+  head
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-rbsn737HqAFr35RHm61v2zZ68273BA7hN2o+y5t4kS81kwA9t8gAOi4t43Z" crossorigin="anonymous")
+    style.
+      .custom-container {
+        margin-top: 40px;
+      }
+      .search-form {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .search-input {
+        border: none;
+        border-radius: 25px;
+        padding: 10px;
+      }
+      .search-button {
+        border-radius: 25px;
+      }
+      .error-message {
+        color: red;
+      }
+
+  div(class="container custom-container")
+    .row
+      .col-md-12.text-center
+        h1(class="display-4") Player Search
+
+    .row
+      .col-md-12.search-form
+        form(action="/searchPlayerRouter", method="GET", onsubmit="return validateForm(this);")
+          .form-group
+            input(type="text", class="form-control search-input", id="playerName", name="search", placeholder="Enter Player Name")
+            p(class="error-message" id="error-message")
+          .text-center
+            button(type="submit", class="btn btn-primary search-button") Search
+
+    script.
+      function validateForm(form) {
+        var playerName = form.search.value;
+
+        if (!playerName) {
+          document.getElementById("error-message").textContent = "Please enter a player name.";
+          return false;
+        }
+
+        if (playerName.length < 3 || playerName.length > 20) {
+          document.getElementById("error-message").textContent = "Player name must be between 3 and 20 characters.";
+          return false;
+        }
+
+        if (/ {2,}/.test(playerName)) {
+          document.getElementById("error-message").textContent = "Player name cannot have more than 1 consecutive whitespaces.";
+          return false;
+        }
+
+        if (/[^a-zA-Z\s]+/.test(playerName)) {
+          document.getElementById("error-message").textContent = "Player name can only contain letters and spaces.";
+          return false;
+        }
+
+        document.getElementById("error-message").textContent = "";
+
+        return true;
+      }

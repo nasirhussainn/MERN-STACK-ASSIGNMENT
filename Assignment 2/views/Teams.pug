@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title Player Data
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css")
+    style.
+      .player-name {
+        text-decoration: underline;
+        color: green;
+        cursor: pointer;
+      }
+    script.
+      function submitForm(playerId) {
+        document.getElementById('id').value = playerId;
+        document.forms['playerForm'].submit();
+      }
+  body
+    .container
+      ul
+        - const name = response2.data.info.name
+        - finalMatch = response2.data.matchList[14]
+      h1 #{name}
+      h2 #{finalMatch.name}
+      ul 
+        li Match Type: #{finalMatch.matchType}
+        li Status: #{finalMatch.status}
+        li Venue: #{finalMatch.venue}
+        li Date: #{finalMatch.date}
+    
+      form(name='playerForm', action='/playerInfoRouter', method='get')
+        table.table.table-striped
+          thead
+            tr
+              th Team #{finalMatch.teamInfo[0].name}
+              th Team #{finalMatch.teamInfo[1].name}
+          tbody
+            - let indiaPlayers = response.data.filter(player => player.country === 'India')
+            - let australiaPlayers = response.data.filter(player => player.country === 'Australia')
+            each i in [0, 1, 2, 3, 4]
+              tr
+                td
+                  if indiaPlayers[i]
+                    form(action='/playerInfoRouter', method='get')
+                      input(type='hidden', name='id', value=indiaPlayers[i].id)
+                      button.btn(type='submit', class='player-name', onclick="submitForm('#{indiaPlayers[i].id}')")= indiaPlayers[i].name
+                  else
+                    | 
+                td
+                  if australiaPlayers[i]
+                    form(action='/playerInfoRouter', method='get')
+                      input(type='hidden', name='id', value=australiaPlayers[i].id)
+                      button.btn(type='submit', class='player-name', onclick="submitForm('#{australiaPlayers[i].id}')")= australiaPlayers[i].name
+                  else
+                    |
